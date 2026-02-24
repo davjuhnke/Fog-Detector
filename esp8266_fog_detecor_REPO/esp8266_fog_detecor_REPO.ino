@@ -4,9 +4,9 @@
 #include <PubSubClient.h>
 #include <SoftwareSerial.h>
 
-#define WIFI_SSID     "wellsJuh"
-#define WIFI_PASS     "Greenearth196"
-#define BROKER_IP     "10.0.0.220"
+#define WIFI_SSID     "SSID"
+#define WIFI_PASS     "PASSWD"
+#define BROKER_IP     "PI IP"
 #define BROKER_PORT   1883
 
 SoftwareSerial arduinoSerial(D2, D3);  // RX TX respectively
