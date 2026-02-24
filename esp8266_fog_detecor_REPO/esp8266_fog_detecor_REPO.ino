@@ -58,11 +58,16 @@ void loop() {
 
         Serial.print("Received from Arduino: ");
         Serial.println(data);
+        // UART debug - print raw received data
 
-        if (mqtt.publish("sensors/data", data.c_str())) {
-            Serial.println("Published successfully!");
+        if (data.length() > 0 && data.startsWith("{") && data.endsWith("}")) {
+            if (mqtt.publish("sensors/data", data.c_str())) {
+                Serial.println("Published successfully!");
+            } else {
+                Serial.println("Publish failed!");
+            }
         } else {
-            Serial.println("Publish failed!");
+            Serial.println("Skipping invalid data.");
         }
     }
 }
